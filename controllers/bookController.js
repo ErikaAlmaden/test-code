@@ -23,6 +23,7 @@ export const create = async (req, res) => {
 
 export const edit = async (req, res) => {
     const book = await Book.findById(req.params.id);
+    res.locals.title = 'Edit Book'
     res.render('books/edit', { book });
 };
 
