@@ -17,7 +17,7 @@ export const register = async (req, res) => {
     } catch (err) {
         console.log(err.message);
 
-        if (error.code === 11000) { 
+        if (err.code === 11000) { 
             return res.status(400).render('auth/register', { error: 'Email is already in use.' });
         }
 
