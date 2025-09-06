@@ -3,11 +3,15 @@ import Book from '../models/Book.js';
 
 export const index = async (req, res) => {
     const books = await Book.find({ owner: req.session.user._id });
+    res.locals.title = 'My Books'
     res.render('books/index', { books });
 };
 
 
-export const newBook = (req, res) => res.render('books/new');
+export const newBook = (req, res) => {
+    res.locals.title = 'New Book'
+    res.render('books/new');
+} 
 
 
 export const create = async (req, res) => {
